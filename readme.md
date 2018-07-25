@@ -58,3 +58,25 @@ console.log('Tests passed');
     sample_redux_and_redux_store_implementation folder
 ### - **Redux store implementation**
     sample_redux_and_redux_store_implementation folder
+
+
+
+
+
+
+## Implementation of Combined Reducers
+``` const combineReducers = (reducers) => {
+  return (state = {}, action) => {
+    return Object.keys(reducers).reduce(
+      (nextState, key) => {
+        nextState[key] = reducers[key](
+          state[key],
+          action
+        );
+        return nextState;
+      },
+      {}
+    );
+  };
+}; ```
+
